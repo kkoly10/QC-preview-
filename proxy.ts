@@ -6,10 +6,10 @@ const PROTECTED_ROUTES = ['/dashboard', '/runs', '/templates', '/settings']
 type CookieToSet = {
   name: string
   value: string
-  options: CookieOptions
+  options?: CookieOptions
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   let response = NextResponse.next({
     request,
   })
