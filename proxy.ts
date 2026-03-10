@@ -4,13 +4,7 @@ import { createServerClient } from '@supabase/ssr';
 const PROTECTED_ROUTES = ['/dashboard'];
 
 export async function middleware(request: NextRequest) {
-  const response = NextResponse.next({ request });
-
-  type CookieSetPayload = {
-    name: string;
-    value: string;
-    options?: Parameters<typeof response.cookies.set>[2];
-  };
+  let response = NextResponse.next({ request });
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -20,7 +14,7 @@ export async function middleware(request: NextRequest) {
         getAll() {
           return request.cookies.getAll();
         },
-        setAll(cookiesToSet: CookieSetPayload[]) {
+        setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value, options }) => {
             request.cookies.set(name, value);
             response.cookies.set(name, value, options);
