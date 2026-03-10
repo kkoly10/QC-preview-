@@ -1,20 +1,6 @@
 import { cookies } from 'next/headers';
 import { createServerClient } from '@supabase/ssr';
 
-type CookieToSet = {
-  name: string;
-  value: string;
-  options?: {
-    domain?: string;
-    path?: string;
-    expires?: Date;
-    maxAge?: number;
-    httpOnly?: boolean;
-    secure?: boolean;
-    sameSite?: 'lax' | 'strict' | 'none';
-  };
-};
-
 /**
  * Server client for Server Components, Route Handlers, and Server Actions.
  * Cookie read/write support enables Supabase SSR auth token refresh.
@@ -30,7 +16,7 @@ export async function createClient() {
         getAll() {
           return cookieStore.getAll();
         },
-        setAll(cookiesToSet: CookieToSet[]) {
+        setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value, options }) => {
             cookieStore.set(name, value, options);
           });

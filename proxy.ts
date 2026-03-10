@@ -3,20 +3,6 @@ import { createServerClient } from '@supabase/ssr';
 
 const PROTECTED_ROUTES = ['/dashboard'];
 
-type CookieToSet = {
-  name: string;
-  value: string;
-  options?: {
-    domain?: string;
-    path?: string;
-    expires?: Date;
-    maxAge?: number;
-    httpOnly?: boolean;
-    secure?: boolean;
-    sameSite?: 'lax' | 'strict' | 'none';
-  };
-};
-
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({ request });
 
@@ -28,7 +14,7 @@ export async function middleware(request: NextRequest) {
         getAll() {
           return request.cookies.getAll();
         },
-        setAll(cookiesToSet: CookieToSet[]) {
+        setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value, options }) => {
             request.cookies.set(name, value);
             response.cookies.set(name, value, options);
