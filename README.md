@@ -1,4 +1,4 @@
-# Move Through Labor
+# Positioning and the Effect on Labor
 
 A multi-page Next.js website built in this repository to present public-facing, citation-visible education about maternal positioning during labor.
 

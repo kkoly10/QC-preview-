@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Move Through Labor',
+  title: 'Positioning and the Effect on Labor',
   description:
     'An evidence-based educational website about maternal positioning during labor, birth options, and why movement matters.',
 };

@@ -21,8 +21,8 @@ export function SiteHeader() {
         <Link href="/move-through-labor" className={styles.brand}>
           <span className={styles.brandDot} aria-hidden="true" />
           <span className={styles.brandText}>
-            Move Through Labor
-            <small>Positioning and the effect on labor</small>
+            Positioning and the Effect on Labor
+            <small>Evidence-informed birth education</small>
           </span>
         </Link>
 

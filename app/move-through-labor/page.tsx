@@ -13,8 +13,8 @@ export default function HomePage() {
         <div className={`${styles.container} ${styles.heroShell}`}>
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>Evidence-informed birth education</p>
-            <p className={styles.heroSubline}>Positioning and the effect on labor</p>
-            <h1 className={styles.displayTitle}>Move Through Labor</h1>
+            <p className={styles.heroSubline}>Maternal positioning, mobility, and delivery outcomes</p>
+            <h1 className={styles.displayTitle}>Positioning and the Effect on Labor</h1>
             <p className={styles.heroLead}>
               Positioning during labor is not just a comfort preference. The literature selected for
               this project consistently points to the value of walking, changing positions, and using
