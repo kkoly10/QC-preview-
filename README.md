@@ -1,16 +1,19 @@
-# ResultRail QC — Milestones 1 & 2
+# Move Through Labor
 
-This repository currently implements only:
+A multi-page Next.js website built in this repository to present public-facing, citation-visible education about maternal positioning during labor.
 
-1. **Milestone 1 — Foundation and Auth**
-   - Next.js App Router foundation pages for `/login` and `/dashboard`
-   - Supabase SSR auth clients (`browser`, `server`, `admin`)
-   - route protection in `proxy.ts` for protected paths
+## Main route
+- `/move-through-labor`
 
-2. **Milestone 2 — SQL Schema and RLS**
-   - initial Supabase migration with ResultRail QC core tables
-   - foreign keys, timestamps, status/severity constraints
-   - row-level security enabled on all application tables
-   - org-scoped read/write policies using profile organization membership
+## Subpages
+- `/move-through-labor/evidence`
+- `/move-through-labor/positions`
+- `/move-through-labor/media`
+- `/move-through-labor/resources`
 
-No Milestone 3+ workflow implementation is included in this revision.
+## Current source list
+- Ondeck (2019)
+- Zang et al. (2020)
+- Liu et al. (2025)
+- Satone et al. (2023)
+- Gimovsky & Berghella (2022)
