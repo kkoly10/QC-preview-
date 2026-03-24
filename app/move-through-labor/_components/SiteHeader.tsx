@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import type { SiteSettings } from '@/lib/site/types';
 import styles from '../site.module.css';
 
 const navItems = [
@@ -12,7 +13,11 @@ const navItems = [
   { href: '/move-through-labor/resources', label: 'Resources' },
 ];
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  settings: SiteSettings;
+};
+
+export function SiteHeader({ settings }: SiteHeaderProps) {
   const pathname = usePathname();
 
   return (
@@ -20,13 +25,13 @@ export function SiteHeader() {
       <div className={`${styles.container} ${styles.headerInner}`}>
         <Link href="/move-through-labor" className={styles.brand}>
           <span className={styles.brandMark} aria-hidden="true">
-            <span className={styles.brandMarkLetters}>PL</span>
+            <span className={styles.brandMarkLetters}>{settings.monogram}</span>
           </span>
 
           <span className={styles.brandText}>
-            <span className={styles.brandTitleFull}>Positioning and the Effect on Labor</span>
-            <span className={styles.brandTitleMobile}>Positioning &amp; Labor</span>
-            <small>Evidence-informed birth education</small>
+            <span className={styles.brandTitleFull}>{settings.site_title}</span>
+            <span className={styles.brandTitleMobile}>{settings.mobile_title}</span>
+            <small>{settings.tagline}</small>
           </span>
         </Link>
 

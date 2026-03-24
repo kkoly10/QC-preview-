@@ -1,18 +1,30 @@
+import { defaultReferenceMap } from '@/lib/site/defaults';
+import type { ReferenceMap } from '@/lib/site/types';
 import styles from '../site.module.css';
-import { references } from '../data';
 
 type CitationProps = {
-  ids: readonly (keyof typeof references)[];
+  ids: readonly string[];
+  referenceMap?: ReferenceMap;
 };
 
-export function Citation({ ids }: CitationProps) {
+export function Citation({ ids, referenceMap }: CitationProps) {
+  const activeMap = referenceMap ?? defaultReferenceMap;
+
   return (
     <sup className={styles.citationGroup} aria-label="Citations">
-      {ids.map((id) => (
-        <a key={id} href={`#ref-${id}`} className={styles.citationLink}>
-          [{references[id].number}]
-        </a>
-      ))}
+      {ids.map((id) => {
+        const reference = activeMap[id];
+
+        if (!reference) {
+          return null;
+        }
+
+        return (
+          <a key={id} href={`#ref-${id}`} className={styles.citationLink}>
+            [{reference.number}]
+          </a>
+        );
+      })}
     </sup>
   );
 }

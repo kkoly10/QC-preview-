@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { getPublicSiteSettings } from '@/lib/site/cms';
 import styles from './site.module.css';
 import { SiteFooter } from './_components/SiteFooter';
 import { SiteHeader } from './_components/SiteHeader';
@@ -10,12 +11,14 @@ export const metadata: Metadata = {
     'An evidence-based educational website about maternal positioning during labor, birth options, and why movement matters.',
 };
 
-export default function LaborSiteLayout({ children }: { children: ReactNode }) {
+export default async function LaborSiteLayout({ children }: { children: ReactNode }) {
+  const settings = await getPublicSiteSettings();
+
   return (
     <div className={styles.page}>
-      <SiteHeader />
+      <SiteHeader settings={settings} />
       <main className={styles.main}>{children}</main>
-      <SiteFooter />
+      <SiteFooter settings={settings} />
     </div>
   );
 }

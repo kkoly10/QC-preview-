@@ -1,16 +1,21 @@
+import type { SiteSettings } from '@/lib/site/types';
 import styles from '../site.module.css';
 
-export function SiteFooter() {
+type SiteFooterProps = {
+  settings: SiteSettings;
+};
+
+export function SiteFooter({ settings }: SiteFooterProps) {
   return (
     <footer className={styles.footer}>
       <div className={`${styles.container} ${styles.footerInner}`}>
         <div className={styles.footerBrand}>
           <span className={styles.footerMark} aria-hidden="true">
-            PL
+            {settings.monogram}
           </span>
           <div className={styles.footerLockup}>
-            <p className={styles.footerTitle}>Positioning and the Effect on Labor</p>
-            <p className={styles.footerSubtitle}>Evidence-informed birth education</p>
+            <p className={styles.footerTitle}>{settings.footer_title}</p>
+            <p className={styles.footerSubtitle}>{settings.footer_subtitle}</p>
           </div>
         </div>
 
