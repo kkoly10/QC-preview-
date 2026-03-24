@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { getAdminContext } from '@/lib/admin/auth';
-import type { ReferenceRecord } from '@/lib/site/types';
 
 export async function POST(request: Request) {
   const { supabase, profile } = await getAdminContext();
@@ -10,10 +9,13 @@ export async function POST(request: Request) {
   }
 
   const payload = await request.json();
-  const references = payload.references as ReferenceRecord[];
+  const references = payload.references;
 
   if (!Array.isArray(references)) {
-    return NextResponse.json({ error: 'References payload must be an array.' }, { status: 400 });
+    return NextResponse.json(
+      { error: 'References payload must be an array.' },
+      { status: 400 }
+    );
   }
 
   const normalized = references.map((reference, index) => ({
@@ -23,10 +25,12 @@ export async function POST(request: Request) {
     source_url: reference.source_url ?? null,
     doi: reference.doi ?? null,
     sort_order: reference.sort_order ?? index + 1,
-    is_active: reference.is_active ?? true,
+    is_active: reference.is_active ?? true
   }));
 
-  const { error } = await supabase.from('references').upsert(normalized, { onConflict: 'ref_key' });
+  const { error } = await supabase
+    .from('references')
+    .upsert(normalized, { onConflict: 'ref_key' });
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 400 });
