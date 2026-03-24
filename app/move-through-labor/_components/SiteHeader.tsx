@@ -19,9 +19,13 @@ export function SiteHeader() {
     <header className={styles.header}>
       <div className={`${styles.container} ${styles.headerInner}`}>
         <Link href="/move-through-labor" className={styles.brand}>
-          <span className={styles.brandDot} aria-hidden="true" />
+          <span className={styles.brandMark} aria-hidden="true">
+            <span className={styles.brandMarkLetters}>PL</span>
+          </span>
+
           <span className={styles.brandText}>
-            Positioning and the Effect on Labor
+            <span className={styles.brandTitleFull}>Positioning and the Effect on Labor</span>
+            <span className={styles.brandTitleMobile}>Positioning &amp; Labor</span>
             <small>Evidence-informed birth education</small>
           </span>
         </Link>
