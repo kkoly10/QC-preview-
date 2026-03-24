@@ -8,14 +8,14 @@ const links = [
   { href: '/admin/settings', label: 'Settings' },
   { href: '/admin/references', label: 'References' },
   { href: '/admin/pages/home', label: 'Home page' },
-  { href: '/admin/pages/evidence', label: 'Evidence page' },
-  { href: '/admin/pages/positions', label: 'Positions page' },
-  { href: '/admin/pages/media', label: 'Media page' },
-  { href: '/admin/pages/resources', label: 'Resources page' },
-  { href: '/move-through-labor', label: 'View live site' },
+  { href: '/move-through-labor', label: 'View live site' }
 ];
 
-export default async function EditorLayout({ children }: { children: ReactNode }) {
+export default async function EditorLayout({
+  children
+}: {
+  children: ReactNode;
+}) {
   const { profile } = await requireAdmin();
 
   return (
