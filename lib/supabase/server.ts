@@ -3,7 +3,8 @@ import { cookies } from 'next/headers';
 
 export function isSupabaseServerConfigured() {
   return Boolean(
-    process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    process.env.NEXT_PUBLIC_SUPABASE_URL &&
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   );
 }
 
@@ -24,10 +25,10 @@ export async function createSupabaseServerClient() {
               cookieStore.set(name, value, options)
             );
           } catch {
-            // Ignored in server component contexts where cookies are read-only.
+            // ignored in read-only contexts
           }
-        },
-      },
+        }
+      }
     }
   );
 }
