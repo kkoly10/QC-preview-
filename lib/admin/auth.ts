@@ -1,5 +1,8 @@
 import { redirect } from 'next/navigation';
-import { createSupabaseServerClient, isSupabaseServerConfigured } from '@/lib/supabase/server';
+import {
+  createSupabaseServerClient,
+  isSupabaseServerConfigured
+} from '@/lib/supabase/server';
 
 export type AdminProfile = {
   user_id: string;
@@ -16,7 +19,7 @@ export async function getAdminContext() {
 
   const supabase = await createSupabaseServerClient();
   const {
-    data: { user },
+    data: { user }
   } = await supabase.auth.getUser();
 
   if (!user) {
