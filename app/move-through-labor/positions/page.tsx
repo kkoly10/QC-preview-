@@ -42,15 +42,31 @@ export default function PositionsPage() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <PageIntro
-          eyebrow="Labor positions"
-          title="Birth positions are options, not rules"
-          description="The best public-facing message is not that everyone should labor the same way. It is that women should know the likely benefits and tradeoffs of different positions so they can make informed choices with their care teams."
-        />
+        <div className={styles.pageLeadShell}>
+          <div className={styles.pageLeadCard}>
+            <PageIntro
+              eyebrow="Labor positions"
+              title="Birth positions are options, not rules"
+              description="The best public-facing message is not that everyone should labor the same way. It is that women should know the likely benefits and tradeoffs of different positions so they can make informed choices with their care teams."
+            />
+          </div>
 
-        <div className={styles.grid3}>
+          <aside className={styles.pageLeadAside}>
+            <p className={styles.eyebrow}>Featured alternatives</p>
+            <h2 className={styles.h2}>The page is built around movement</h2>
+            <ul className={styles.sideList}>
+              <li>Walking and standing</li>
+              <li>Kneeling and hands-and-knees</li>
+              <li>Squatting and birthing stool options</li>
+              <li>Side-lying and other supported recumbent positions</li>
+            </ul>
+          </aside>
+        </div>
+
+        <div className={styles.positionGrid}>
           {positions.map((position) => (
-            <article className={styles.card} key={position.title}>
+            <article className={styles.positionCard} key={position.title}>
+              <p className={styles.cardEyebrow}>Position option</p>
               <h2 className={styles.h3}>{position.title}</h2>
               <p className={styles.p}>
                 {position.body}
@@ -61,19 +77,28 @@ export default function PositionsPage() {
         </div>
 
         <section className={styles.innerSection}>
-          <div className={styles.split}>
-            <div>
+          <div className={styles.split}> 
+            <div className={styles.pageLeadCard}>
+              <p className={styles.cardEyebrow}>Public takeaway</p>
               <h2 className={styles.h2}>What the public should remember</h2>
               <ul className={styles.list}>
-                <li>Position can be changed during labor. One posture does not need to be used from start to finish<Citation ids={['ondeck2019']} />.</li>
-                <li>Upright options are especially relevant to discussions of the second stage of labor and non-epidural births in the selected evidence base<Citation ids={['zang2020', 'gimovsky2022']} />.</li>
+                <li>
+                  Position can be changed during labor. One posture does not need to be used from
+                  start to finish
+                  <Citation ids={['ondeck2019']} />.
+                </li>
+                <li>
+                  Upright options are especially relevant to discussions of the second stage of
+                  labor and non-epidural births in the selected evidence base
+                  <Citation ids={['zang2020', 'gimovsky2022']} />.
+                </li>
                 <li>Comfort, monitoring needs, fatigue, and safety all matter. This is about informed choice, not rigid ideology.</li>
               </ul>
             </div>
 
-            <aside className={styles.highlight}>
-              <h2 className={styles.h2}>Suggested conversation starters</h2>
-              <p className={styles.p}>Ask your care team:</p>
+            <aside className={styles.audienceCard}>
+              <p className={styles.cardEyebrow}>Conversation starters</p>
+              <h2 className={styles.h2}>Questions to ask your care team</h2>
               <ul className={styles.plainList}>
                 <li>Can I walk and change positions during labor?</li>
                 <li>What position options do you support in the second stage?</li>

@@ -6,11 +6,25 @@ export default function MediaPage() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <PageIntro
-          eyebrow="Media"
-          title="Videos that support movement and positioning education"
-          description="These embedded videos match the media items selected for this project and provide public-facing demonstrations of labor movement and positioning."
-        />
+        <div className={styles.pageLeadShell}>
+          <div className={styles.pageLeadCard}>
+            <PageIntro
+              eyebrow="Media"
+              title="Videos that support movement and positioning education"
+              description="These embedded videos match the media items selected for this project and provide public-facing demonstrations of labor movement and positioning."
+            />
+          </div>
+
+          <aside className={styles.pageLeadAside}>
+            <p className={styles.eyebrow}>How to use this page</p>
+            <h2 className={styles.h2}>Start with visuals, then return to the evidence</h2>
+            <ul className={styles.sideList}>
+              <li>Use these videos as visual orientation, not as standalone medical guidance.</li>
+              <li>Pair movement demonstrations with the evidence and positions pages for context.</li>
+              <li>Share them as conversation starters before birth planning discussions.</li>
+            </ul>
+          </aside>
+        </div>
 
         <div className={styles.mediaGrid}>
           <MediaEmbed
