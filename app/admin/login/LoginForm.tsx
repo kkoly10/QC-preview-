@@ -23,7 +23,7 @@ export function LoginForm() {
       const supabase = createSupabaseBrowserClient();
       const { error: signInError } = await supabase.auth.signInWithPassword({
         email,
-        password,
+        password
       });
 
       if (signInError) {
@@ -37,7 +37,9 @@ export function LoginForm() {
       router.push('/admin');
       router.refresh();
     } catch (caughtError) {
-      setError(caughtError instanceof Error ? caughtError.message : 'Unable to sign in.');
+      setError(
+        caughtError instanceof Error ? caughtError.message : 'Unable to sign in.'
+      );
       setStatus('');
       setLoading(false);
     }
