@@ -17,7 +17,8 @@ export default async function AdminLoginPage() {
           <p className={styles.eyebrow}>Editor access</p>
           <h1 className={styles.h1}>Sign in to manage the site</h1>
           <p className={styles.p}>
-            This admin area controls editable content for Positioning and the Effect on Labor.
+            This admin area controls editable content for Positioning and the
+            Effect on Labor.
           </p>
 
           <LoginForm />
@@ -25,8 +26,9 @@ export default async function AdminLoginPage() {
           <div className={styles.notice}>
             <p className={styles.h3}>First-time setup note</p>
             <p className={styles.p}>
-              Create the editor user in Supabase Auth, then add that user to the{' '}
-              <code>admin_profiles</code> table after running the migration.
+              Create the editor user in Supabase Auth, then add that user to the
+              <code> admin_profiles </code>
+              table after running the migration.
             </p>
           </div>
         </div>
